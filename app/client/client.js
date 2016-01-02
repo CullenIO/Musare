@@ -982,10 +982,10 @@ Template.room.events({
             });
         });
     },
-    "click #chat-tab": function() {
+    "click .chat-tab": function() {
         $("#chat-tab").removeClass("unread-messages");
     },
-    "click #global-chat-tab": function() {
+    "click .global-chat-tab": function() {
         $("#global-chat-tab").removeClass("unread-messages");
     },
     "click #sync": function() {
