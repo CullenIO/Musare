@@ -744,6 +744,7 @@ Template.queues.events({
         newSong.type = $("#type").val();
         newSong.duration = Number($("#duration").val());
         newSong.skipDuration = $("#skip-duration").val();
+        newSong.requestedBy = Session.get("song").requestedBy;
         if(newSong.skipDuration === undefined){
             newSong.skipDuration = 0;
         };
@@ -1990,6 +1991,7 @@ Template.stations.events({
         newSong.type = $("#type").val();
         newSong.duration = Number($("#duration").val());
         newSong.skipDuration = $("#skip-duration").val();
+        newSong.requestedBy = Session.get("song").requestedBy;
         if(newSong.skipDuration === undefined){
             newSong.skipDuration = 0;
         };
