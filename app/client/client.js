@@ -744,6 +744,7 @@ Template.queues.events({
         newSong.type = $("#type").val();
         newSong.duration = Number($("#duration").val());
         newSong.skipDuration = $("#skip-duration").val();
+        newSong.requestedBy = Session.get("song").requestedBy;
         if(newSong.skipDuration === undefined){
             newSong.skipDuration = 0;
         };
@@ -982,10 +983,10 @@ Template.room.events({
             });
         });
     },
-    "click #chat-tab": function() {
+    "click .chat-tab": function() {
         $("#chat-tab").removeClass("unread-messages");
     },
-    "click #global-chat-tab": function() {
+    "click .global-chat-tab": function() {
         $("#global-chat-tab").removeClass("unread-messages");
     },
     "click #sync": function() {
@@ -1990,6 +1991,7 @@ Template.stations.events({
         newSong.type = $("#type").val();
         newSong.duration = Number($("#duration").val());
         newSong.skipDuration = $("#skip-duration").val();
+        newSong.requestedBy = Session.get("song").requestedBy;
         if(newSong.skipDuration === undefined){
             newSong.skipDuration = 0;
         };
