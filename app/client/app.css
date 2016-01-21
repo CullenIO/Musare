@@ -677,9 +677,9 @@ footer .fa {
     text-align: center;
     color: white;
     font-family: Sans-serif;
-    /*float: left;*/
     margin-right: auto;
     margin-left: auto;
+    margin-top: 10px;
     position: relative;
 }
 
