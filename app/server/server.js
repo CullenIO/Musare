@@ -155,7 +155,7 @@ function Station(type) {
     if (currentSong < (songs.length - 1)) {
         currentSong++;
     } else currentSong = 0;
-    var currentTitle = songs[currentSong].title;
+    var currentMid = songs[currentSong].mid;
 
     Rooms.update({type: type}, {$set: {currentSong: {song: songs[currentSong], started: startedAt}, users: 0}});
 
@@ -165,7 +165,7 @@ function Station(type) {
         Rooms.update({type: type}, {$set: {votes: 0}});
         songs = Playlists.findOne({type: type}).songs;
         songs.forEach(function(song, index) {
-            if (song.title === currentTitle) {
+            if (song.mid === currentMid) {
                 currentSong = index;
             }
         });
@@ -182,7 +182,7 @@ function Station(type) {
                 songs[currentSong].mid = newSong.mid;
                 Playlists.update({type: type, "songs": songs[currentSong]}, {$set: {"songs.$": newSong}});
             }
-            currentTitle = songs[currentSong].title;
+            currentMid = songs[currentSong].mid;
             Playlists.update({type: type}, {$set: {lastSong: currentSong}});
             Rooms.update({type: type}, {$set: {timePaused: 0}});
             this.songTimer();
@@ -204,7 +204,7 @@ function Station(type) {
             }
             Playlists.update({type: type}, {$push: {"songs": song}});
         });
-        currentTitle = songs[currentSong].title;
+        currentMid = songs[currentSong].mid;
         Playlists.update({type: type}, {$set: {lastSong: currentSong}});
         Rooms.update({type: type}, {$set: {timePaused: 0}});
         this.songTimer();
