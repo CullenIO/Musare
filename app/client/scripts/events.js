@@ -1,3 +1,4 @@
+var feedbackData;
 function gup( name, url ) {
     if (!url) url = location.href;
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
