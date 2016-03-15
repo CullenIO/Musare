@@ -1,4 +1,3 @@
-var feedbackData;
 function gup( name, url ) {
     if (!url) url = location.href;
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -1574,11 +1573,13 @@ Template.room.events({
     "click #volume-icon": function () {
         var volume = 0;
         var slider = $("#volume-slider").slider();
-        $("#volume-icon").removeClass("fa-volume-down").addClass("fa-volume-off")
+        //$("#volume-icon").removeClass("fa-volume-down").addClass("fa-volume-off") // Font-awesome ?
+        $("#volume-icon").html("volume_off");
         if (YTPlayer !== undefined) {
             YTPlayer.setVolume(volume);
             localStorage.setItem("volume", volume);
-            $("#volume-slider").slider("setValue", volume);
+            //$("#volume-slider").slider("setValue", volume); // Where did this come from?
+            $("#volume-slider").val(volume);
         }
     },
     "click #play": function () {
